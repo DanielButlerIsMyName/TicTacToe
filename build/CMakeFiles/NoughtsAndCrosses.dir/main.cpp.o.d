@@ -1,5 +1,5 @@
 CMakeFiles/NoughtsAndCrosses.dir/main.cpp.o: \
-  /Users/delta/desktop/main.cpp \
+  /Users/delta/Dev/TicTacToe/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/pthread.h \
