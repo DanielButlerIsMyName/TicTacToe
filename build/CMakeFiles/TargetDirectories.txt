@@ -1,0 +1,3 @@
+/Users/delta/desktop/build/CMakeFiles/NoughtsAndCrosses.dir
+/Users/delta/desktop/build/CMakeFiles/edit_cache.dir
+/Users/delta/desktop/build/CMakeFiles/rebuild_cache.dir
