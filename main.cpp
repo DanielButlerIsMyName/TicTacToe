@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+
 #define RESET   "\033[0m"
 #define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
 #define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
@@ -18,8 +19,8 @@ using namespace std;
 
 
 string filds[9] = {"1", "X", "3", "4", "5", "O", "7", "8", "9"};
-bool winner = false
-string turn = "X"
+bool winner = false;
+string turn = "X";
 
 
 void getGridInfo(int x){
@@ -36,39 +37,60 @@ void getGridInfo(int x){
     
 }
 
+void printGrid(){
+    cout << "\n";
+    cout << "  ";
+    getGridInfo(0);
+    cout << "  |  ";
+    getGridInfo(1);
+    cout << "  |  ";
+    getGridInfo(2);
+    cout << "\n";
+    cout << "-----------------\n";
+    cout << "  ";
+    getGridInfo(3);
+    cout << "  |  ";
+    getGridInfo(4);
+    cout << "  |  ";
+    getGridInfo(5);
+    cout << "\n";
+    cout << "-----------------\n";
+    cout << "  ";
+    getGridInfo(6);
+    cout << "  |  ";
+    getGridInfo(7);
+    cout << "  |  ";
+    getGridInfo(8);
+    cout << "\n";
+    cout << "\n";
+}
+
 void playerAction(){
+    int chosenFild;
+    cout << "Player " << turn << " choose a fild: ";
+    cin >> chosenFild;
+
+    if (filds[chosenFild] == "X"){
+        cout << "\n This fild is taken by a player please choose another one\n";
+        playerAction();
+    }else if (filds[chosenFild] == "O")
+    {
+        cout << "\n This fild is taken by a player please choose another one\n";
+        playerAction();
+    }else{
+
+    }
+    
     
 }
+
 
 int main(int argc, const char * argv[]) {
 
     while (winner == false)
     {
-
-        cout << "  ";
-        getGridInfo(0);
-        cout << "  |  ";
-        getGridInfo(1);
-        cout << "  |  ";
-        getGridInfo(2);
-        cout << "\n";
-        cout << "-----------------\n";
-        cout << "  ";
-        getGridInfo(3);
-        cout << "  |  ";
-        getGridInfo(4);
-        cout << "  |  ";
-        getGridInfo(5);
-        cout << "\n";
-        cout << "-----------------\n";
-        cout << "  ";
-        getGridInfo(6);
-        cout << "  |  ";
-        getGridInfo(7);
-        cout << "  |  ";
-        getGridInfo(8);
-        cout << "\n";
-
+        printGrid();
+        return 0;
     }
-    return 0;
+    
 }
