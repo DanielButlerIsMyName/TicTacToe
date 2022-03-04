@@ -18,10 +18,13 @@
 using namespace std;
 
 
-string filds[9] = {"1", "X", "3", "4", "5", "O", "7", "8", "9"};
+string filds[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 bool winner = false;
 string turn = "X";
 
+void clear(){
+    system("clear");
+}
 
 void getGridInfo(int x){
 
@@ -69,16 +72,103 @@ void playerAction(){
     int chosenFild;
     cout << "Player " << turn << " choose a fild: ";
     cin >> chosenFild;
+    chosenFild = chosenFild -1;
 
     if (filds[chosenFild] == "X"){
         cout << "\n This fild is taken by a player please choose another one\n";
         playerAction();
     }else if (filds[chosenFild] == "O")
     {
-        cout << "\n This fild is taken by a player please choose another one\n";
+        cout << "\nThis fild is taken by a player please choose another one\n";
         playerAction();
-    }else{
+    }else if (chosenFild == 1  || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9){
+        filds[chosenFild] = turn;
 
+    }else{
+        cout << "pleas enter a number of the grid\n";
+        playerAction();
+    }
+}
+
+void checkForWinner(){
+    if (filds[0] == "X"  &&  filds[1] == "X" && filds[2] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[0] == "O"  &&  filds[1] == "O" && filds[2] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[3] == "X"  &&  filds[4] == "X" && filds[5] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[3] == "O"  &&  filds[4] == "O" && filds[5] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[6] == "X"  &&  filds[7] == "X" && filds[8] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[6] == "O"  &&  filds[7] == "O" && filds[8] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[0] == "X"  &&  filds[3] == "X" && filds[6] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[0] == "O"  &&  filds[3] == "O" && filds[6] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[1] == "X"  &&  filds[4] == "X" && filds[7] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[1] == "O"  &&  filds[4] == "O" && filds[7] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[2] == "X"  &&  filds[5] == "X" && filds[8] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[2] == "O"  &&  filds[5] == "O" && filds[8] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[0] == "X"  &&  filds[4] == "X" && filds[8] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[0] == "O"  &&  filds[4] == "O" && filds[8] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[2] == "X"  &&  filds[4] == "X" && filds[6] == "X"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }else if (filds[2] == "O"  &&  filds[4] == "O" && filds[6] == "O"){
+        system("clear");
+        printGrid();
+        winner = true;
+    }
+}
+
+void announceWinner(){
+    if (turn == "X")
+    {
+        cout << BOLDRED << "**********************************\n";
+        cout << "******* " << BOLDWHITE <<turn << " is the winner.  " << BOLDRED << "********\n";
+        cout << "**********************************\n";
+    }else if (turn == "O")
+    {
+        cout << BOLDBLUE << "**********************************";
+        cout << "*******" << BOLDWHITE <<turn << "  is the winner.  " << BOLDBLUE << "********";
+        cout << "**********************************\n";
     }
     
     
@@ -89,8 +179,28 @@ int main(int argc, const char * argv[]) {
 
     while (winner == false)
     {
-        printGrid();
-        return 0;
+        if (winner == false){
+            turn = "X";
+            printGrid();
+            playerAction();
+            checkForWinner();
+        }else if (winner == true){
+            announceWinner();
+        }else{
+            return 0;
+        }
+        
+        if (winner == false){
+            turn = "O";
+            printGrid();
+            playerAction();
+            checkForWinner();
+        }else if (winner == true){
+            announceWinner();
+        }else{
+            return 0;
+        }
+
     }
-    
+    return 0;
 }
