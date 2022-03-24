@@ -19,7 +19,7 @@ using namespace std;
 
 
 
-string filds[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+string fields[9] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 bool winner = false;
 string turn = "X";
 
@@ -29,14 +29,14 @@ void clear(){
 
 void getGridInfo(int x){
 
-    string fildData =  filds[x];
+    string fieldData =  fields[x];
 
-    if (fildData == "X"){
+    if (fieldData == "X"){
         cout << BOLDRED << "X" << RESET;
-    }else if (fildData == "O"){
+    }else if (fieldData == "O"){
         cout << BOLDBLUE << "O" << RESET;
     }else{
-        cout << BOLDGREEN << fildData << RESET;
+        cout << BOLDGREEN << fieldData << RESET;
     }
     
 }
@@ -70,20 +70,20 @@ void printGrid(){
 }
 
 void playerAction(){
-    int chosenFild;
-    cout << "Player " << turn << " choose a fild: ";
-    cin >> chosenFild;
-    chosenFild = chosenFild -1;
+    int chosenfield;
+    cout << "Player " << turn << " choose a field: ";
+    cin >> chosenfield;
+    chosenfield = chosenfield -1;
 
-    if (filds[chosenFild] == "X"){
-        cout << "\n This fild is taken by a player please choose another one\n";
+    if (fields[chosenfield] == "X"){
+        cout << "\n This field is taken by a player please choose another one\n";
         playerAction();
-    }else if (filds[chosenFild] == "O")
+    }else if (fields[chosenfield] == "O")
     {
-        cout << "\nThis fild is taken by a player please choose another one\n";
+        cout << "\nThis field is taken by a player please choose another one\n";
         playerAction();
-    }else if (chosenFild == 1  || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9){
-        filds[chosenFild] = turn;
+    }else if (chosenfield == 1  || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9){
+        fields[chosenfield] = turn;
 
     }else{
         cout << "pleas enter a number of the grid\n";
@@ -92,67 +92,67 @@ void playerAction(){
 }
 
 void checkForWinner(){
-    if (filds[0] == "X"  &&  filds[1] == "X" && filds[2] == "X"){
+    if (fields[0] == "X"  &&  fields[1] == "X" && fields[2] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[0] == "O"  &&  filds[1] == "O" && filds[2] == "O"){
+    }else if (fields[0] == "O"  &&  fields[1] == "O" && fields[2] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[3] == "X"  &&  filds[4] == "X" && filds[5] == "X"){
+    }else if (fields[3] == "X"  &&  fields[4] == "X" && fields[5] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[3] == "O"  &&  filds[4] == "O" && filds[5] == "O"){
+    }else if (fields[3] == "O"  &&  fields[4] == "O" && fields[5] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[6] == "X"  &&  filds[7] == "X" && filds[8] == "X"){
+    }else if (fields[6] == "X"  &&  fields[7] == "X" && fields[8] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[6] == "O"  &&  filds[7] == "O" && filds[8] == "O"){
+    }else if (fields[6] == "O"  &&  fields[7] == "O" && fields[8] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[0] == "X"  &&  filds[3] == "X" && filds[6] == "X"){
+    }else if (fields[0] == "X"  &&  fields[3] == "X" && fields[6] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[0] == "O"  &&  filds[3] == "O" && filds[6] == "O"){
+    }else if (fields[0] == "O"  &&  fields[3] == "O" && fields[6] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[1] == "X"  &&  filds[4] == "X" && filds[7] == "X"){
+    }else if (fields[1] == "X"  &&  fields[4] == "X" && fields[7] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[1] == "O"  &&  filds[4] == "O" && filds[7] == "O"){
+    }else if (fields[1] == "O"  &&  fields[4] == "O" && fields[7] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[2] == "X"  &&  filds[5] == "X" && filds[8] == "X"){
+    }else if (fields[2] == "X"  &&  fields[5] == "X" && fields[8] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[2] == "O"  &&  filds[5] == "O" && filds[8] == "O"){
+    }else if (fields[2] == "O"  &&  fields[5] == "O" && fields[8] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[0] == "X"  &&  filds[4] == "X" && filds[8] == "X"){
+    }else if (fields[0] == "X"  &&  fields[4] == "X" && fields[8] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[0] == "O"  &&  filds[4] == "O" && filds[8] == "O"){
+    }else if (fields[0] == "O"  &&  fields[4] == "O" && fields[8] == "O"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[2] == "X"  &&  filds[4] == "X" && filds[6] == "X"){
+    }else if (fields[2] == "X"  &&  fields[4] == "X" && fields[6] == "X"){
         system("clear");
         printGrid();
         winner = true;
-    }else if (filds[2] == "O"  &&  filds[4] == "O" && filds[6] == "O"){
+    }else if (fields[2] == "O"  &&  fields[4] == "O" && fields[6] == "O"){
         system("clear");
         printGrid();
         winner = true;
@@ -165,11 +165,13 @@ void announceWinner(){
         cout << BOLDRED << "**********************************\n";
         cout << "******* " << BOLDWHITE <<turn << " is the winner.  " << BOLDRED << "********\n";
         cout << "**********************************\n";
+        cout << RESET << "\n";
     }else if (turn == "O")
     {
         cout << BOLDBLUE << "**********************************";
         cout << "*******" << BOLDWHITE <<turn << "  is the winner.  " << BOLDBLUE << "********";
         cout << "**********************************\n";
+        cout << RESET << "\n";
     }
     
     
